@@ -9,12 +9,6 @@ class GithubFlowSugar < Formula
 
   def install
     system *%W(install -d -m 755 #{bin})
-    system *%W(install -d -m 755), *COMMANDS, bin.to_s
-  end
-
-  def post_install
-    COMMANDS.each do |command|
-      system "ln", "-s", "#{bin}/#{command}", "/usr/local/bin"
-    end
+    system *%W(install -m 755), *COMMANDS, bin.to_s
   end
 end
